@@ -1,0 +1,7 @@
+secret.key
+homecloud.db
+config.json
+data/
+certs/
+certbot/
+.env

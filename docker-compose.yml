@@ -1,0 +1,23 @@
+services:
+  homeserver:
+    build: ./backend
+    ports:
+      - "127.0.0.1:3164:3164"
+    environment:
+      - DEFAULT_FOLDER=/app/files
+    volumes:
+      - ./data:/app/data
+      - C:/Users/Megas/Documents:/app/files
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./certs:/etc/letsencrypt
+      - ./certbot:/var/www/certbot
+    restart: unless-stopped
+    depends_on:
+      - homeserver
