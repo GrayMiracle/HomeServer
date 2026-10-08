@@ -26,7 +26,7 @@ type loginResponse struct {
 	UserID int `json:"userId"`
 }
 
-const isDevelopment = false // Set to false in production for secure cookies
+const isDevelopment = true // Set to false in production for secure cookies
 
 // LoginHandler to handle login requests from POST /auth/login with jwtSecret passed from main.go
 func LoginHandler(w http.ResponseWriter, r *http.Request, jwtSecret []byte) {
